@@ -69,7 +69,7 @@ public class MissionDemolition : MonoBehaviour
         {
             mode = GameMode.levelEnd;
             SwitchView("Show Both");
-            invoke("NextLevel", 2f);
+            Invoke("NextLevel", 2f);
         }
     }
     void NextLevel()

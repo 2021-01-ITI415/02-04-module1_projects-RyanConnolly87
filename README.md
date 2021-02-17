@@ -1,2 +1,1 @@
-# Module1-Projects
- ApplePicker, Mission Demolition and Prototype 1
+The goal of this project was to make a game that is challenging for the player and make them want to keep playing to stay alive longer and longer each time. The frameworks helped me think about how the mechanics of a simple game like the one I made is most important since the game is a very simple game so the goal of the game is addicting to stay alive for a longer period each new game. 

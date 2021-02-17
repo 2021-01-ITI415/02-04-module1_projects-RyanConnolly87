@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public float speed = 0;
-    
+    public GameObject loseTextObject;
+
 
     private Rigidbody rb;
+    private int count;
     private float movementX;
     private float movementY;
 
@@ -17,6 +20,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        count = 0;
+
+        SetCountText();
+        loseTextObject.SetActive(false);
     }
     
     void OnMove(InputValue movementValue)
@@ -27,6 +34,15 @@ public class Player : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    void SetCountText()
+    {
+        if (count == 1)
+        {
+            loseTextObject.SetActive(true);
+        }
+    }
+
+
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
@@ -34,19 +50,20 @@ public class Player : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+
+            SetCountText();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         
     }
-
-    void OnCollisionEnter(Collision coll)
-    {
-        GameObject collideWith = coll.gameObject;
-        if (collideWith.tag == "Bomb")
-        {
-            Destroy(collideWith);
-        }
-    }
-
 }

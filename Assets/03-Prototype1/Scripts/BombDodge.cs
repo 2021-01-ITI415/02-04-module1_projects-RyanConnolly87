@@ -10,14 +10,14 @@ public class BombDodge : MonoBehaviour
         
     }
 
-    public void BombDestroyed()
-    {
-        GameObject[] tBombArray = GameObject.FindGameObjectsWithTag("Bomb");
-        foreach (GameObject tGO in tBombArray)
-        {
-            Destroy(tGO);
-        }
-    }
+    //public void BombDestroyed()
+    //{
+    //    GameObject[] tBombArray = GameObject.FindGameObjectsWithTag("Bomb");
+    //   foreach (GameObject tGO in tBombArray)
+    //    {
+    //        Destroy(tGO);
+    //   }
+    //}
 
 
 

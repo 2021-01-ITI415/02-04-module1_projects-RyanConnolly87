@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float speed = 0;
     public GameObject loseTextObject;
+    public GameObject player;
 
 
     private Rigidbody rb;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
 
         SetCountText();
         loseTextObject.SetActive(false);
+        player.SetActive(true);
     }
     
     void OnMove(InputValue movementValue)
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
         if (count == 1)
         {
             loseTextObject.SetActive(true);
+            player.SetActive(false);
         }
     }
 
@@ -56,7 +60,7 @@ public class Player : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
-
+    
             SetCountText();
         }
     }
